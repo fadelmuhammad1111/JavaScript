@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Mencari data</h2>
+    <input type="text" id="search-input" placeholder="Search">
+    <button id="search-submit">Kirim</button>
+    <div id="search-result"></div>
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-submit');
+        const searchResult = document.getElementById('search-result');
+
+        searchButton.addEventListener('click', () => {
+            const searchText = searchInput.value.trim();
+            if (searchText === '') {
+                searchResult.innerHTML = 'Tidak dapat menemukan data';
+            } else {
+                searchResult.innerHTML = `Mencari data ${searchText}`;
+            }
+        });
+    </script>
+</body>
+</html>

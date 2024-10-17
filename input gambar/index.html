@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tampilan Gambar</title>
+    <style>
+        #image {
+            width: 300px; /* Set the width of the image */
+            transition: opacity 0.5s; /* Animation for opacity change */
+        }
+    </style>
+</head>
+<body>
+
+    <label for="imageSelect">Pilih Gambar</label>
+    <select id="imageSelect">
+        <option value="">Pilih</option>
+        <option value="jogja.jfif">Gambar 1</option>
+        <option value="gambar.jpg">Gambar 2</option>
+        <option value="bali.jfif">Gambar 3</option>
+    </select>
+
+    <label for="opacitySelect">Pilih opacity:</label>
+    <select id="opacitySelect">
+        <option value="1">1</option>
+        <option value="0.5">0.5</option>
+        <option value="0.2">0.2</option>
+    </select>
+
+    <img id="image" src="img/bali.jfif" alt="Your Image" style="display: none; opacity: 1;">
+
+    <script>
+        const imageSelect = document.getElementById('imageSelect');
+        const opacitySelect = document.getElementById('opacitySelect');
+        const image = document.getElementById('image');
+
+        imageSelect.addEventListener('change', function() {
+            const selectedImage = imageSelect.value;
+            if (selectedImage) {
+                image.src = selectedImage;
+                image.style.display = 'block';
+                image.style.opacity = '1';
+                opacitySelect.value = '1';
+            } else {
+                image.style.display = 'none';
+            }
+        });
+
+        opacitySelect.addEventListener('change', function() {
+            const selectedOpacity = opacitySelect.value;
+            image.style.opacity = selectedOpacity; // Change image opacity
+        });
+    </script>
+
+</body>
+</html>
